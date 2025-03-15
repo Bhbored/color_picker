@@ -1,56 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
-class RandomColorButton extends StatefulWidget {
+class RandomColorButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   RandomColorButton({required this.onPressed});
 
   @override
-  _RandomColorButtonState createState() => _RandomColorButtonState();
-}
-
-class _RandomColorButtonState extends State<RandomColorButton> {
-  double _scale = 1.0;
-
-  void _onTapDown(TapDownDetails details) {
-    setState(() {
-      _scale = 0.95;
-    });
-  }
-
-  void _onTapUp(TapUpDetails details) {
-    setState(() {
-      _scale = 1.0;
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTapDown: _onTapDown,
-      onTapUp: _onTapUp,
-      onTap: widget.onPressed,
-      child: Transform.scale(
-        scale: _scale,
-        child: FloatingActionButton.extended(
-          onPressed: widget.onPressed,
-          backgroundColor: Color(0xFFFF69B4), // Light pink background
-          elevation: 5, // Subtle shadow
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(50), // Fully rounded corners
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Color(0xFFFF69B4), // Pink color
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12), // Smaller padding
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30), // Slightly rounded corners
+        ),
+        elevation: 5, // Add a subtle shadow
+        shadowColor: Color(0xFFFF69B4).withOpacity(0.3), // Shadow color
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min, // Make the row take only the space it needs
+        children: [
+          Icon(
+            Icons.color_lens, // Cute icon for color generation
+            size: 20, // Smaller icon size
+            color: Colors.white,
           ),
-          label: Text(
-            'Generate Random Color',
-            style: GoogleFonts.nunito( // Use Nunito font
-              fontSize: 18,
+          SizedBox(width: 10), // Space between icon and text
+          Text(
+            'Random Color',
+            style: GoogleFonts.nunito(
+              fontSize: 16, // Smaller font size
               fontWeight: FontWeight.bold,
-              color: Colors.white, // White text for contrast
+              color: Colors.white,
             ),
           ),
-          icon: Icon(Icons.color_lens, color: Colors.white), // Add an icon
-        ),
-      ),
+        ],
+      ).animate().fadeIn(duration: 500.ms).scale(), // Add animation
     );
   }
 }

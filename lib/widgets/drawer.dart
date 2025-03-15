@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:color_picker/screens/about_us.dart';
 import 'package:color_picker/screens/faq.dart';
 import 'package:color_picker/screens/support.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class DrawerFb1 extends StatelessWidget {
   @override
@@ -23,13 +24,15 @@ class DrawerFb1 extends StatelessWidget {
                   SizedBox(height: 12),
                   Text(
                     'RainbowRush',
-                    style: TextStyle(
+                    style: GoogleFonts.nunito(
                       color: Colors.white, // White text for contrast
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Divider(color: Colors.white70), // Light divider for separation
+                  Divider(
+                    color: Colors.white70,
+                  ), // Light divider for separation
                 ],
               ),
             ),

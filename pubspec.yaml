@@ -30,15 +30,24 @@ environment:
 dependencies:
   clipboard: ^0.1.3
   cupertino_icons: ^1.0.8
+  fl_chart: ^0.70.2
   flutter:
     sdk: flutter
+  flutter_animate: ^4.5.2
+  flutter_launcher_icons: ^0.14.3
+  glassmorphism: ^3.0.0
   google_fonts: ^6.2.1
+  patch_package: ^0.0.8
   url_launcher: ^6.3.1
 
 dev_dependencies:
   flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logo.jpeg"    
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
